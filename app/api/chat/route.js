@@ -2,6 +2,12 @@ import { NextResponse } from "next/server";
 import { Mistral } from "@mistralai/mistralai";
 import { Pinecone } from "@pinecone-database/pinecone";
 
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
 const pc = new Pinecone({ apiKey: process.env.PINECONE_API_KEY });
 const index = pc.index("chatbot");
 const mistral = new Mistral({ apiKey: process.env.MISTRAL_API_KEY });
@@ -31,6 +37,10 @@ async function getRelevantContext(query) {
     .join("\n\n");
 }
 
+export async function OPTIONS() {
+  return new Response(null, { status: 204, headers: CORS_HEADERS });
+}
+
 export async function POST(req) {
   try {
     const { messages, language = 'English' } = await req.json();
@@ -38,7 +48,7 @@ export async function POST(req) {
     if (!messages || messages.length === 0) {
       return NextResponse.json(
         { error: "Conversation history is required." },
-        { status: 400 }
+        { status: 400, headers: CORS_HEADERS }
       );
     }
 
@@ -86,9 +96,12 @@ export async function POST(req) {
       },
     });
 
-    return new NextResponse(readable);
+    return new NextResponse(readable, { headers: CORS_HEADERS });
   } catch (error) {
     console.error("Error getting content:", error.message);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error.message },
+      { status: 500, headers: CORS_HEADERS }
+    );
   }
 }
