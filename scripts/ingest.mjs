@@ -12,11 +12,11 @@ const index = pc.index("chatbot");
 const chunks = [
   {
     id: "intro",
-    text: "Lauren Ruiz is a Computer Science student at Virginia Tech's College of Engineering. She is a first-generation college student and a Clark Scholar through the A. James & Alice B. Clark Foundation. She is passionate about technology, problem solving, software engineering, and creating opportunities for underrepresented students in STEM. Lauren grew up in Reston, Virginia and comes from a Bolivian family background. She has always enjoyed logic, math, and solving problems, which led her to pursue computer science.",
+    text: "Lauren Ruiz is a Computer Science graduate at Virginia Tech's College of Engineering. She is a first-generation college student and a Clark Scholar through the A. James & Alice B. Clark Foundation. She is passionate about technology, problem solving, software engineering, and creating opportunities for underrepresented students in STEM. Lauren grew up in Reston, Virginia and comes from a Bolivian family background. She has always enjoyed logic, math, and solving problems, which led her to pursue computer science.",
   },
   {
     id: "education",
-    text: "Lauren attends Virginia Tech's College of Engineering, majoring in Computer Science with a GPA of 3.77, expected to graduate in May 2026. Relevant coursework includes Design & Data Structures (Java), Intro to Software Design (Java), Computer Organization (C/Linux), Problem Solving in Computer Science (Python/HTML), Statistics for Engineers, Foundations of Engineering (MATLAB).",
+    text: "Lauren attended Virginia Tech's College of Engineering, majoring in Computer Science with a GPA of 3.72, and graduated in May 2026. Relevant coursework includes Design & Data Structures (Java), Intro to Software Design (Java), Computer Organization (C/Linux), Problem Solving in Computer Science (Python/HTML), Statistics for Engineers, Foundations of Engineering (MATLAB).",
   },
   {
     id: "technical-skills",
