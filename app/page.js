@@ -6,6 +6,16 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import ThumbDownIcon from '@mui/icons-material/ThumbDown'
 import ReactMarkdown from 'react-markdown'
 
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': 'https://your-portfolio-domain.com',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
+export async function OPTIONS() {
+  return new Response(null, { status: 204, headers: CORS_HEADERS });
+}
+
 export default function Home() {
   const [messages, setMessages] = useState([
     {
